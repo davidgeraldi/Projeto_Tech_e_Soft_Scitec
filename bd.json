@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "titulo": "O Retrato de Dorian Gray",
+    "autor": "Oscar Wilde",
+    "porcentagem": 45
+  },
+  {
+    "id": 2,
+    "titulo": "Persuasão",
+    "autor": "Jane Austen",
+    "porcentagem": 12
+  },
+  {
+    "id": 3,
+    "titulo": "Assim Falou Zaratustra",
+    "autor": "Friedrich Nietzsche",
+    "porcentagem": 88
+  }
+]

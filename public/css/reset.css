@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --roxo-principal: #2f1847;
+    --rosa-principal: #f9b3d1;
+    --roxo-detalhe: #624763;
+    --fundo-site: #0f0f12;
+    --texto-branco: #ffffff;
+    --fonte-texto: "Sora", sans-serif;
+    --fonte-titulos: "Sora", sans-serif;
+}
+
+body {
+    background-color: var(--roxo-principal);
+    color: var(--texto-branco);
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--fonte-titulos);
+    color: var(--rosa-principal);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

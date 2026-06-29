@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Biblioteca</title>
+        <link rel="stylesheet" href="/css/reset.css" />
+    </head>
+    <body>
+        <%- include('partials/navbar') %>
+        <main>
+            <h1>Minha Biblioteca</h1>
+
+            <% if (books.length === 0) { %>
+            <div class="empty-state">
+                <p>Seu santuário de leitura está vazio.</p>
+                <p>
+                    Adicione seu primeiro livro para começar a registrar seu
+                    progresso.
+                </p>
+            </div>
+            <% } else { %>
+            <div class="book-grid">
+                <% books.forEach(function(books) { %>
+                <div class="book-card">
+                    <h2><%= books.titulo %></h2>
+                    <p>Progresso: <%= books.porcentagem %>%</p>
+                </div>
+                <% }) %>
+            </div>
+            <% } %>
+        </main>
+    </body>
+</html>
