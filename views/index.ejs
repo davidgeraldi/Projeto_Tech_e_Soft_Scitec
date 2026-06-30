@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>testando</title>
+        <title>Organizador de Biblioteca</title>
         <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        <%- include('partials/navbar') %> opa
+        <%- include('partials/navbar') %> 
+        
+        <main>
+            <div class="banner-principal">
+                <img src="https://cdn.pixabay.com/photo/2016/03/09/15/29/books-1246674_1280.jpg" alt="Fundo de Biblioteca">
+                
+                <div class="banner-logo">
+                    <h1>SciTec <span>Library</span></h1>
+                    <p>O seu organizador pessoal de acervo</p>
+                </div>
+            </div>
+
+            <section class="sobre-sistema">
+                <h2>Como funciona o nosso sistema?</h2>
+                
+                <div class="conteudo-texto">
+                    <p>Gerenciar o seu acervo literário nunca foi tão simples. O <strong>SciTec Library</strong> foi projetado para facilitar a organização, a busca e o controle de todos os seus títulos favoritos em um único lugar.</p>
+                    
+                    <ul class="lista-funcionalidades">
+                        <li>
+                            <strong>Aba Biblioteca:</strong> No menu superior, você acessa o catálogo completo. Lá você pode visualizar as capas, pesquisar por autores e descobrir em qual categoria cada livro se encaixa.
+                        </li>
+                        <li>
+                            <strong>Gestão Rápida:</strong> Adicione novos títulos ao acervo, atualize o status (lido, lendo, na fila) e tenha o controle total do que você tem na estante.
+                        </li>
+                        <li>
+                            <strong>Integração com API:</strong> Todo o sistema é alimentado de forma dinâmica, garantindo que o seu catálogo esteja sempre atualizado e sincronizado.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="rodape-site">
+            <div class="rodape-conteudo">
+                <p>&copy; 2026 SciTec Library. Desenvolvido para gestão de acervos.</p>
+            </div>
+        </footer>
     </body>
 </html>

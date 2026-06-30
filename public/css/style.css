@@ -1,0 +1,103 @@
+
+.banner-principal {
+    width: 100%;
+    height: 45vh; 
+    min-height: 350px; 
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; 
+    position: absolute;
+    z-index: 1;
+    filter: brightness(0.35); 
+}
+
+.banner-logo {
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+    color: var(--texto-branco);
+}
+
+.banner-logo h1 {
+    font-size: 3.5rem;
+    color: var(--texto-branco);
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.banner-logo h1 span {
+    color: var(--rosa-principal); 
+}
+
+.banner-logo p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    font-weight: 300;
+}
+
+.sobre-sistema {
+    max-width: 900px;
+    margin: -50px auto 60px auto; 
+    padding: 40px 50px;
+    background-color: var(--roxo-detalhe);
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 10;
+}
+
+.sobre-sistema h2 {
+    font-size: 2.2rem;
+    color: var(--rosa-principal);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.conteudo-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--texto-branco);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lista-funcionalidades {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-funcionalidades li {
+    background-color: var(--roxo-principal);
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--rosa-principal);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #d1c4e9;
+}
+
+.lista-funcionalidades strong {
+    color: var(--rosa-principal);
+    display: block; 
+    font-size: 1.15rem;
+    margin-bottom: 5px;
+}
+
+/*Footer*/
+.rodape-site {
+    background-color: #0b0b0e; 
+    color: #888;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--roxo-detalhe);
+}
