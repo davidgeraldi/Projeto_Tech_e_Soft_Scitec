@@ -1,0 +1,48 @@
+<div class="empty-container">
+    <p>O santuário ainda está em silêncio.</p>
+    <p>Sua jornada de leitura começa aqui.</p>
+
+    <button class="btn-comecar js-abrir-modal">
+        Cadastre sua primeira leitura
+    </button>
+</div>
+<style>
+    .empty-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--rosa-principal);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 4rem auto;
+        max-width: 500px;
+        text-align: center;
+        background-color: rgba(249, 179, 209, 0.05);
+    }
+
+    .empty-container p {
+        font-family: var(--fonte-titulos);
+        font-size: 1.4rem;
+        color: var(--texto-branco);
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-comecar {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background-color: var(--rosa-principal);
+        color: var(--roxo-principal);
+        font-family: var(--fonte-texto);
+        font-weight: 700;
+        border-radius: 10px;
+        transition:
+            transform 0.2s ease,
+            opacity 0.2s ease;
+    }
+
+    .btn-comecar:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+</style>

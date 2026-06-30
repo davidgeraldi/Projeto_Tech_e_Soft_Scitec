@@ -1,20 +1,14 @@
 [
   {
-    "id": 1,
-    "titulo": "O Retrato de Dorian Gray",
-    "autor": "Oscar Wilde",
-    "porcentagem": 45
-  },
-  {
-    "id": 2,
-    "titulo": "Persuasão",
+    "id": 1782843807983,
+    "titulo": "Orgulho e Preconceito",
     "autor": "Jane Austen",
-    "porcentagem": 12
+    "paginas": 380
   },
   {
-    "id": 3,
-    "titulo": "Assim Falou Zaratustra",
-    "autor": "Friedrich Nietzsche",
-    "porcentagem": 88
+    "id": 1782844002319,
+    "titulo": "Drácula",
+    "autor": "Bram Stroker",
+    "paginas": 400
   }
 ]

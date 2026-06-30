@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,24 +11,51 @@
         <main>
             <h1>Minha Biblioteca</h1>
 
-            <% if (books.length === 0) { %>
-            <div class="empty-state">
-                <p>Seu santuário de leitura está vazio.</p>
-                <p>
-                    Adicione seu primeiro livro para começar a registrar seu
-                    progresso.
-                </p>
-            </div>
-            <% } else { %>
-            <div class="book-grid">
-                <% books.forEach(function(books) { %>
-                <div class="book-card">
-                    <h2><%= books.titulo %></h2>
-                    <p>Progresso: <%= books.porcentagem %>%</p>
-                </div>
-                <% }) %>
-            </div>
+            <% if (books.length === 0) { %> <%- include('partials/empty') %> <%
+            } else { %> <%- include('partials/books-grid', { books: books }) %>
             <% } %>
+
+            <div id="modal-leitura" class="modal-overlay hidden">
+                <div class="modal-content">
+                    <button id="btn-fechar-modal" class="btn-fechar">
+                        &times;
+                    </button>
+
+                    <%- include('partials/form-add') %>
+                </div>
+            </div>
         </main>
     </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("modal-leitura");
+            const btnFechar = document.getElementById("btn-fechar-modal");
+
+            // Agora pegamos TODOS os botões que tenham a classe js-abrir-modal
+            // (tanto o do empty.ejs quanto o do books-grid.ejs)
+            const botoesAbrir = document.querySelectorAll(".js-abrir-modal");
+
+            // Checagem de segurança só pro modal e pro botão de fechar
+            if (modal && btnFechar) {
+                // Faz um loop por todos os botões de abrir encontrados e adiciona o evento de clique
+                botoesAbrir.forEach((botao) => {
+                    botao.addEventListener("click", () => {
+                        modal.classList.remove("hidden");
+                    });
+                });
+
+                // Fecha o modal ao clicar no 'X'
+                btnFechar.addEventListener("click", () => {
+                    modal.classList.add("hidden");
+                });
+
+                // Fecha o modal ao clicar fora da caixa branca (no fundo escuro)
+                window.addEventListener("click", (event) => {
+                    if (event.target === modal) {
+                        modal.classList.add("hidden");
+                    }
+                });
+            }
+        });
+    </script>
 </html>

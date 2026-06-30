@@ -1,0 +1,136 @@
+<div class="grid-container">
+    <div class="grid-header">
+        <h2>Últimas leituras</h2>
+        <button
+            class="btn-novo-livro js-abrir-modal"
+            title="Adicionar nova leitura"
+        >
+            +
+        </button>
+    </div>
+
+    <div class="books-grid">
+        <% books.forEach(function(book) { %>
+        <div class="book-card">
+            <div class="book-cover"></div>
+
+            <div class="book-info">
+                <h3 class="book-title"><%= book.titulo %></h3>
+                <p class="book-author"><%= book.autor %></p>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+<style>
+    .grid-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto 2rem auto; /* Centraliza e dá espaço para os livros abaixo */
+        padding: 0 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1rem;
+    }
+
+    .grid-header h2 {
+        font-family: var(--fonte-titulos);
+        color: var(--texto-branco);
+        font-size: 1.5rem; /* Um pouco menor para não brigar com o H1 da página */
+        margin: 0;
+    }
+
+    /* O Botão + Verdinho continua com o mesmo CSS de antes */
+    .btn-novo-livro {
+        background-color: #2e7d32;
+        color: #ffffff;
+        border: none;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 1.8rem;
+        font-family: var(--fonte-texto);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+        transition:
+            transform 0.2s ease,
+            background-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .btn-novo-livro:hover {
+        background-color: #388e3c;
+        transform: scale(1.1) rotate(90deg);
+        box-shadow: 0 6px 15px rgba(46, 125, 50, 0.5);
+    }
+    .books-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 2.5rem 1.5rem; /* Espaçamento entre as linhas e colunas */
+        max-width: 900px; /* Limita a largura máxima da estante */
+        margin: 3rem auto;
+        padding: 0 1rem;
+    }
+
+    .book-card {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    /* Efeito sutil de levantar o card ao passar o mouse */
+    .book-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* A Capa em Branco */
+    .book-cover {
+        width: 100%;
+        /* 2/3 é a proporção clássica (2 de largura para 3 de altura) */
+        aspect-ratio: 2 / 3;
+        background-color: var(--texto-branco, #ffffff);
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        margin-bottom: 1rem;
+        border: 2px solid transparent;
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* Quando passa o mouse no card, a capa ganha uma borda da sua cor principal */
+    .book-card:hover .book-cover {
+        border-color: var(--rosa-principal);
+        box-shadow: 0 8px 20px rgba(249, 179, 209, 0.2);
+    }
+
+    /* Informações do Livro */
+    .book-info {
+        text-align: center;
+    }
+
+    .book-title {
+        font-family: var(--fonte-titulos);
+        color: var(--texto-branco);
+        font-size: 1rem;
+        margin: 0 0 0.2rem 0;
+        line-height: 1.2;
+        /* Corta o texto com "..." se o título for muito grande */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .book-author {
+        font-family: var(--fonte-texto);
+        color: var(--rosa-principal);
+        font-size: 0.85rem;
+        margin: 0;
+        opacity: 0.8;
+    }
+</style>
