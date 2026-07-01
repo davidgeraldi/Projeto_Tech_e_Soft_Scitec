@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contato | SciTec Library</title>
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include('partials/navbar') %> 
+        
+        <main>
+            <div class="banner-principal">
+                <img src="https://cdn.pixabay.com/photo/2016/03/09/15/29/books-1246674_1280.jpg" alt="Fundo de Biblioteca">
+                <div class="banner-logo">
+                    <h1>Contato</h1>
+                    <p>Estamos à disposição para dúvidas e sugestões</p>
+                </div>
+            </div>
+
+            <section class="sobre-sistema">
+                <h2>Entre em contato</h2>
+                <div class="conteudo-texto">
+                    <p>Tem alguma dúvida sobre como organizar seu acervo ou sugestões para o <strong>SciTec Library</strong>? Fique à vontade para enviar uma mensagem diretamente através do formulário abaixo. Responderemos assim que possível!</p>
+                </div>
+
+                <form class="formulario-contato" action="/enviar-contato" method="POST">
+                    <input type="text" name="nome" placeholder="Seu nome" required>
+                    <input type="email" name="email" placeholder="Seu e-mail" required>
+                    <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
+                    <button type="submit" class="btn-detalhes">Enviar Mensagem</button>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>

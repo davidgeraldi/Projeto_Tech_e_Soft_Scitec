@@ -16,14 +16,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/biblioteca", (req, res) => {
-  const bd = fs.readFileSync("bd.json", "utf-8");
-
-  const books = JSON.parse(bd || "[]");
+  let books = [];
+  if (fs.existsSync("bd.json")) {
+    const bd = fs.readFileSync("bd.json", "utf-8");
+    books = JSON.parse(bd || "[]");
+  }
   res.render("library", { books: books });
 });
 
+app.get("/contato", (req, res) => {
+  res.render("contact");
+});
+
 app.post("/salvar-leitura", (req, res) => {
-  // Pega os dados do formulário
   const { titulo, autor, paginas } = req.body;
 
   const numPaginas = parseInt(paginas);
@@ -52,8 +57,16 @@ app.post("/salvar-leitura", (req, res) => {
   res.redirect("/biblioteca");
 });
 
-app.get("/contato", (req, res) => {
-  res.render("contact");
+app.post('/enviar-contato', (req, res) => {
+    const { nome, email, mensagem } = req.body;
+
+    console.log("=== NOVA MENSAGEM DE CONTATO ===");
+    console.log(`Nome: ${nome}`);
+    console.log(`E-mail: ${email}`);
+    console.log(`Mensagem: ${mensagem}`);
+    console.log("================================");
+
+    res.send("<h1>Mensagem recebida com sucesso!</h1><br><a href='/'>Voltar para a Home</a>");
 });
 
 app.listen(PORT, () => {
