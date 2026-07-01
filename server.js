@@ -88,3 +88,59 @@ app.post("/enviar-contato", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta http://localhost:${PORT}`);
 });
+
+
+
+// Função auxiliar para não repetir o código de leitura do bd.json
+function lerLivros() {
+  if (fs.existsSync("bd.json")) {
+    const bd = fs.readFileSync("bd.json", "utf-8");
+    return JSON.parse(bd || "[]");
+  }
+  return [];
+}
+
+// GET /api/livros -> lista todos, ou filtra via query params
+// Exemplos:
+//   /api/livros?titulo=harry
+//   /api/livros?autor=tolkien
+//   /api/livros?titulo=harry&autor=rowling
+app.get("/api/livros", (req, res) => {
+  let books = lerLivros();
+
+  const { titulo, autor, paginasMin, paginasMax } = req.query;
+
+  if (titulo) {
+    books = books.filter((b) =>
+      b.titulo.toLowerCase().includes(titulo.toLowerCase())
+    );
+  }
+
+  if (autor) {
+    books = books.filter((b) =>
+      b.autor.toLowerCase().includes(autor.toLowerCase())
+    );
+  }
+
+  if (paginasMin) {
+    books = books.filter((b) => b.paginas >= parseInt(paginasMin));
+  }
+
+  if (paginasMax) {
+    books = books.filter((b) => b.paginas <= parseInt(paginasMax));
+  }
+
+  res.json(books);
+});
+
+// GET /api/livros/:id -> busca um livro específico pelo id
+app.get("/api/livros/:id", (req, res) => {
+  const books = lerLivros();
+  const livro = books.find((b) => b.id === parseInt(req.params.id));
+
+  if (!livro) {
+    return res.status(404).json({ error: "Livro não encontrado" });
+  }
+
+  res.json(livro);
+});

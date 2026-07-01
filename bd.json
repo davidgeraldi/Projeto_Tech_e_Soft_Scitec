@@ -5,5 +5,19 @@
     "autor": "Jane Austen",
     "paginas": 700,
     "capa": "https://m.media-amazon.com/images/I/61MgodE1s0L._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 1782871281561,
+    "titulo": "1984",
+    "autor": "George Orwell",
+    "paginas": 416,
+    "capa": "https://livrariascuritiba.vteximg.com.br/arquivos/ids/906109-1000-1000/LV248601.jpg?v=638551657198370000"
+  },
+  {
+    "id": 1782871366109,
+    "titulo": "O Hobbit",
+    "autor": "J.R.R Tolkien",
+    "paginas": 328,
+    "capa": "https://m.media-amazon.com/images/I/81arD48HpRL._SY466_.jpg"
   }
 ]
