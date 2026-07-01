@@ -66,7 +66,7 @@ app.post('/enviar-contato', (req, res) => {
     console.log(`Mensagem: ${mensagem}`);
     console.log("================================");
 
-    res.send("<h1>Mensagem recebida com sucesso!</h1><br><a href='/'>Voltar para a Home</a>");
+    res.json({ success: true, message: "Mensagem recebida!" });
 });
 
 app.listen(PORT, () => {

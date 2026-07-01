@@ -25,7 +25,7 @@
                     <p>Tem alguma dúvida sobre como organizar seu acervo ou sugestões para o <strong>SciTec Library</strong>? Fique à vontade para enviar uma mensagem diretamente através do formulário abaixo. Responderemos assim que possível!</p>
                 </div>
 
-                <form class="formulario-contato" action="/enviar-contato" method="POST">
+                <form id="form-contato" class="formulario-contato">
                     <input type="text" name="nome" placeholder="Seu nome" required>
                     <input type="email" name="email" placeholder="Seu e-mail" required>
                     <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
@@ -33,5 +33,15 @@
                 </form>
             </section>
         </main>
+
+        <div id="toast-mensagem" class="toast-escondido">
+            Mensagem enviada com sucesso!
+        </div>
+        <footer class="rodape-site">
+            <div class="rodape-conteudo">
+                <p>&copy; 2026 SciTec Library. Desenvolvido para gestão de acervos.</p>
+            </div>
+        </footer>
+        <script src="/js/contato.js"></script>
     </body>
 </html>
