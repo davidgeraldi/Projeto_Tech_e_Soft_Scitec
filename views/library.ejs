@@ -20,42 +20,77 @@
                     <button id="btn-fechar-modal" class="btn-fechar">
                         &times;
                     </button>
-
                     <%- include('partials/form-add') %>
                 </div>
             </div>
+
+            <%- include('partials/book-infos') %>
         </main>
     </body>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const modal = document.getElementById("modal-leitura");
-            const btnFechar = document.getElementById("btn-fechar-modal");
+            const modalAdd = document.getElementById("modal-leitura");
+            const btnFecharAdd = document.getElementById("btn-fechar-modal");
+            const botoesAbrirAdd = document.querySelectorAll(".js-abrir-modal");
 
-            // Agora pegamos TODOS os botões que tenham a classe js-abrir-modal
-            // (tanto o do empty.ejs quanto o do books-grid.ejs)
-            const botoesAbrir = document.querySelectorAll(".js-abrir-modal");
+            const modalInfo = document.getElementById("modal-info-livro");
+            const btnFecharInfo = document.getElementById("btn-fechar-info");
+            const cardsLivros = document.querySelectorAll(
+                ".js-abrir-info-livro",
+            );
 
-            // Checagem de segurança só pro modal e pro botão de fechar
-            if (modal && btnFechar) {
-                // Faz um loop por todos os botões de abrir encontrados e adiciona o evento de clique
-                botoesAbrir.forEach((botao) => {
+            const infoTitulo = document.getElementById("info-titulo");
+            const infoAutor = document.getElementById("info-autor");
+            const infoPaginas = document.getElementById("info-paginas");
+            const infoCapa = document.getElementById("info-capa");
+            const infoId = document.getElementById("info-id");
+
+            if (modalAdd && btnFecharAdd) {
+                botoesAbrirAdd.forEach((botao) => {
                     botao.addEventListener("click", () => {
-                        modal.classList.remove("hidden");
+                        modalAdd.classList.remove("hidden");
                     });
                 });
 
-                // Fecha o modal ao clicar no 'X'
-                btnFechar.addEventListener("click", () => {
-                    modal.classList.add("hidden");
-                });
-
-                // Fecha o modal ao clicar fora da caixa branca (no fundo escuro)
-                window.addEventListener("click", (event) => {
-                    if (event.target === modal) {
-                        modal.classList.add("hidden");
-                    }
+                btnFecharAdd.addEventListener("click", () => {
+                    modalAdd.classList.add("hidden");
                 });
             }
+
+            if (modalInfo && btnFecharInfo) {
+                cardsLivros.forEach((card) => {
+                    card.addEventListener("click", () => {
+                        infoTitulo.textContent = card.dataset.titulo;
+                        infoAutor.textContent = card.dataset.autor;
+                        infoPaginas.textContent = card.dataset.paginas;
+                        infoId.value = card.dataset.id;
+
+                        if (
+                            card.dataset.capa &&
+                            card.dataset.capa.trim() !== ""
+                        ) {
+                            infoCapa.style.backgroundImage = `url('${card.dataset.capa}')`;
+                        } else {
+                            infoCapa.style.backgroundImage = "none";
+                        }
+
+                        modalInfo.classList.remove("hidden");
+                    });
+                });
+
+                btnFecharInfo.addEventListener("click", () => {
+                    modalInfo.classList.add("hidden");
+                });
+            }
+
+            window.addEventListener("click", (event) => {
+                if (event.target === modalAdd) {
+                    modalAdd.classList.add("hidden");
+                }
+                if (event.target === modalInfo) {
+                    modalInfo.classList.add("hidden");
+                }
+            });
         });
     </script>
 </html>

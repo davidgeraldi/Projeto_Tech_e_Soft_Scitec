@@ -1,0 +1,102 @@
+<div id="modal-info-livro" class="modal-overlay hidden">
+    <div class="modal-content">
+        <button id="btn-fechar-info" class="btn-fechar">&times;</button>
+
+        <div class="info-layout">
+            <div id="info-capa" class="info-cover-display"></div>
+
+            <div class="info-details">
+                <h2 id="info-titulo" class="form-title"></h2>
+                <p id="info-autor" class="form-subtitle"></p>
+
+                <div class="info-stats">
+                    <span class="stat-label">Páginas:</span>
+                    <span id="info-paginas" class="stat-value"></span>
+                </div>
+
+                <form
+                    id="form-deletar"
+                    action="/deletar-leitura"
+                    method="POST"
+                    class="form-deletar-livro"
+                >
+                    <input type="hidden" name="id" id="info-id" />
+                    <button type="submit" class="btn-deletar">
+                        Deletar Obra
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .info-layout {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .info-cover-display {
+        width: 150px;
+        aspect-ratio: 2 / 3;
+        background-color: var(--texto-branco, #ffffff);
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        background-size: cover;
+        background-position: center;
+        flex-shrink: 0;
+    }
+
+    .info-details {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        width: 100%;
+    }
+
+    .info-details .form-title {
+        text-align: left;
+        margin-bottom: 0.2rem;
+        font-size: 1.5rem;
+    }
+
+    .info-details .form-subtitle {
+        text-align: left;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-stats {
+        display: flex;
+        gap: 0.5rem;
+        font-family: var(--fonte-texto);
+        color: var(--texto-branco);
+        font-size: 1rem;
+    }
+    .form-deletar-livro {
+        margin-top: auto;
+        padding-top: 2rem;
+    }
+
+    .btn-deletar {
+        background: transparent;
+        color: #ff4d4d;
+        border: 1px solid #ff4d4d;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: var(--fonte-texto);
+        font-weight: 700;
+        transition: all 0.2s ease;
+        width: fit-content;
+    }
+
+    .btn-deletar:hover {
+        background: #ff4d4d;
+        color: var(--roxo-principal);
+        transform: scale(1.02);
+    }
+    .stat-label {
+        color: var(--rosa-principal);
+        font-weight: bold;
+    }
+</style>

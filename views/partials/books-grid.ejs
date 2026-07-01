@@ -11,8 +11,26 @@
 
     <div class="books-grid">
         <% books.forEach(function(book) { %>
-        <div class="book-card">
+        <div
+            class="book-card js-abrir-info-livro"
+            data-titulo="<%= book.titulo %>"
+            data-autor="<%= book.autor %>"
+            data-paginas="<%= book.paginas %>"
+            data-capa="<%= book.capa %>"
+            data-id="<%= book.id %>"
+        >
+            <% if (book.capa && book.capa.trim() !== "") { %>
+            <div
+                class="book-cover"
+                style="
+                    background-image: url(&quot;<%= book.capa %>&quot;);
+                    background-size: cover;
+                    background-position: center;
+                "
+            ></div>
+            <% } else { %>
             <div class="book-cover"></div>
+            <% } %>
 
             <div class="book-info">
                 <h3 class="book-title"><%= book.titulo %></h3>

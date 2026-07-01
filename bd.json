@@ -1,14 +1,9 @@
 [
   {
-    "id": 1782843807983,
+    "id": 1782868897011,
     "titulo": "Orgulho e Preconceito",
     "autor": "Jane Austen",
-    "paginas": 380
-  },
-  {
-    "id": 1782844002319,
-    "titulo": "Drácula",
-    "autor": "Bram Stroker",
-    "paginas": 400
+    "paginas": 700,
+    "capa": "https://m.media-amazon.com/images/I/61MgodE1s0L._AC_UF1000,1000_QL80_.jpg"
   }
 ]

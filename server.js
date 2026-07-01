@@ -29,7 +29,7 @@ app.get("/contato", (req, res) => {
 });
 
 app.post("/salvar-leitura", (req, res) => {
-  const { titulo, autor, paginas } = req.body;
+  const { titulo, autor, paginas, capa } = req.body;
 
   const numPaginas = parseInt(paginas);
   if (numPaginas < 1) {
@@ -48,6 +48,7 @@ app.post("/salvar-leitura", (req, res) => {
     titulo: titulo,
     autor: autor,
     paginas: numPaginas,
+    capa: capa || "",
   };
 
   books.push(novoLivro);
@@ -56,17 +57,32 @@ app.post("/salvar-leitura", (req, res) => {
 
   res.redirect("/biblioteca");
 });
+app.post("/deletar-leitura", (req, res) => {
+  const idParaDeletar = parseInt(req.body.id);
 
-app.post('/enviar-contato', (req, res) => {
-    const { nome, email, mensagem } = req.body;
+  if (fs.existsSync("bd.json")) {
+    const bd = fs.readFileSync("bd.json", "utf-8");
+    let books = JSON.parse(bd || "[]");
 
-    console.log("=== NOVA MENSAGEM DE CONTATO ===");
-    console.log(`Nome: ${nome}`);
-    console.log(`E-mail: ${email}`);
-    console.log(`Mensagem: ${mensagem}`);
-    console.log("================================");
+    books = books.filter((book) => book.id !== idParaDeletar);
 
-    res.send("<h1>Mensagem recebida com sucesso!</h1><br><a href='/'>Voltar para a Home</a>");
+    fs.writeFileSync("bd.json", JSON.stringify(books, null, 2), "utf-8");
+  }
+
+  res.redirect("/biblioteca");
+});
+app.post("/enviar-contato", (req, res) => {
+  const { nome, email, mensagem } = req.body;
+
+  console.log("=== NOVA MENSAGEM DE CONTATO ===");
+  console.log(`Nome: ${nome}`);
+  console.log(`E-mail: ${email}`);
+  console.log(`Mensagem: ${mensagem}`);
+  console.log("================================");
+
+  res.send(
+    "<h1>Mensagem recebida com sucesso!</h1><br><a href='/'>Voltar para a Home</a>",
+  );
 });
 
 app.listen(PORT, () => {

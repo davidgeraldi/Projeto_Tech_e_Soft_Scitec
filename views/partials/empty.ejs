@@ -1,48 +1,70 @@
 <div class="empty-container">
-    <p>O santuário ainda está em silêncio.</p>
-    <p>Sua jornada de leitura começa aqui.</p>
+    <span class="empty-icon">✧</span>
+    <h2 class="empty-title">O santuário ainda está em silêncio.</h2>
+    <p class="empty-subtitle">Sua jornada de leitura começa aqui.</p>
 
     <button class="btn-comecar js-abrir-modal">
         Cadastre sua primeira leitura
     </button>
 </div>
 <style>
-    .empty-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid var(--rosa-principal);
-        border-radius: 20px;
-        padding: 3rem;
-        margin: 4rem auto;
-        max-width: 500px;
-        text-align: center;
-        background-color: rgba(249, 179, 209, 0.05);
-    }
+.empty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(249, 179, 209, 0.2);
+    border-radius: 12px;
+    padding: 4rem 3rem;
+    margin: 4rem auto;
+    max-width: 500px;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(249, 179, 209, 0.03) 0%, rgba(249, 179, 209, 0.08) 100%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+}
 
-    .empty-container p {
-        font-family: var(--fonte-titulos);
-        font-size: 1.4rem;
-        color: var(--texto-branco);
-        margin-bottom: 1.5rem;
-    }
+.empty-icon {
+    font-size: 2rem;
+    color: var(--rosa-principal);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
 
-    .btn-comecar {
-        display: inline-block;
-        padding: 0.8rem 2rem;
-        background-color: var(--rosa-principal);
-        color: var(--roxo-principal);
-        font-family: var(--fonte-texto);
-        font-weight: 700;
-        border-radius: 10px;
-        transition:
-            transform 0.2s ease,
-            opacity 0.2s ease;
-    }
+.empty-title {
+    font-family: var(--fonte-titulos);
+    font-size: 1.8rem;
+    color: var(--texto-branco);
+    margin: 0 0 0.5rem 0;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
 
-    .btn-comecar:hover {
-        transform: scale(1.05);
-        opacity: 0.9;
-    }
+.empty-subtitle {
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 2.5rem 0;
+}
+
+.btn-comecar {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--rosa-principal);
+    color: var(--roxo-principal);
+    font-family: var(--fonte-texto);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-comecar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 179, 209, 0.25);
+}
 </style>
