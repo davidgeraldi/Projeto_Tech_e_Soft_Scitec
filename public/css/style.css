@@ -153,6 +153,31 @@
     transform: scale(0.98);
 }
 
+#toast-mensagem {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--rosa-principal);
+    color: var(--roxo-principal);
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.toast-escondido {
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+}
+
+.toast-visivel {
+    opacity: 1;
+    transform: translateY(0); 
+}
 /*Footer*/
 .rodape-site {
     background-color: #0b0b0e; 
